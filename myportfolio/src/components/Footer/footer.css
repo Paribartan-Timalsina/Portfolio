@@ -1,0 +1,21 @@
+.connections {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 1rem; /* Adjust the spacing between icons as needed */
+    height: 1%;
+    background-color: black;
+  }
+  
+  .link .icon {
+    font-size: 3.5rem; /* Adjust the size as needed */
+    color: inherit; /* Optional: ensure the icon color inherits from the parent */
+    padding: 2%;
+  }
+  
+  /* Optional: Additional styling for hover effects */
+  .link:hover .icon {
+    color: white; /* Example color change on hover */
+    transition: color 0.3s;
+  }
+  

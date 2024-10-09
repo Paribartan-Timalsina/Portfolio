@@ -1,0 +1,106 @@
+.navbar{
+    
+    background:rgb(30,30,30);
+    height:4rem;
+    width:100vw;
+    max-width: 80rem;
+    padding:1rem, 2rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 auto;
+    position:sticky;
+    top:0;
+    z-index:3;
+
+}
+.cghello{
+    font-size: 3rem;
+
+}
+.logo{
+    object-fit: cover;
+    height:2rem;
+    width:4rem
+     
+}
+.mobilemenu{
+        height:3rem;
+        width:4rem;
+        display:none;
+         
+   
+}
+.desktopMenuListItem{
+    margin:1rem;
+    color:white;
+    cursor:pointer;
+}
+.desktopMenuListItem:hover{
+    padding-bottom: 0.5rem;
+    color:rgb(203, 140, 113);
+    border-bottom: 3px solid red;
+   
+    
+}
+.desktopMenuBtn{
+    /* object-fit: cover; */
+    /* height:1rem; */
+    /* width:1rem */
+    background: white;
+    color:black;
+    border: none;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 0 1rem;
+    border-radius: 4rem;
+    
+}
+.desktopMenuImg{
+    object-fit: cover;
+    height:1rem; 
+    width:1rem;
+    margin:1rem;
+}
+.active{
+    color: rgb(140, 212, 188);
+    border-bottom: 3px solid yellow;
+    padding-bottom: 0.5rem;
+    
+}
+.navmenu{
+    position:absolute;
+    top:4rem;
+    right:2rem;
+display:flex;
+flex-direction: column;
+padding:0.5rem;
+height:fit-content;
+min-width:15rem;
+background:rgb(40,40,40);
+border-radius: 1rem;
+}
+
+.listItem{
+    color:white;
+    padding:0.5rem 3rem;
+    margin:0.25rem;
+    background: rgb(30,30,30);
+
+}
+
+@media screen and (max-width:720px){
+.mobilemenu{
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+}
+.desktopMenu{
+    display:none;
+}
+.desktopMenuBtn{
+    display:none;
+}
+}

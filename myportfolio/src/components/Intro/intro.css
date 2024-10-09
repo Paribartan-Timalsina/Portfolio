@@ -1,0 +1,86 @@
+#intro{
+    height: calc(100vh - 4rem);
+    width:100vw;
+    max-width: 80rem;
+    margin: 0 auto;
+    overflow:hidden;
+    position:relative;
+}
+.bg {
+    position: absolute; 
+    top: -4rem;
+    right: 1rem;
+    z-index: -2;
+    object-fit: contain;
+    height: 90vh;
+    box-shadow: 0 8px 16px rgba(235, 202, 202, 0.9); /* Initial shadow */
+    opacity: 70%;
+    
+}
+
+
+
+.introContent{
+  
+    height:100vh;
+    width:100vw;
+    padding:2rem;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items:start;
+    position: relative;
+    overflow: scroll;
+
+}
+.hello{
+    font-size: 2rem;
+    font-weight: 100;
+}
+.myName{
+    color:blueviolet;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.introText{
+    font-size: 2rem;
+    font-weight: 100;
+}
+.introPara{
+    font-size:1.3rem;
+    font-weight: 400;
+    width:80vw;
+    max-width: 50rem;
+    text-indent: 30px;
+    text-align: left;
+    color:white
+}
+.btn{
+    background:rgb(226, 123, 123);
+    margin:1rem 0;
+    padding:0.75rem 2rem;
+    border:2px solid white;
+    border-radius: 2rem;
+    cursor: pointer;
+    
+}
+@media screen and (max-width:840px){
+    .bg{
+        right:1vw;
+        opacity: 60%;
+
+    }
+    .introContent{
+        font-size: 10vw;
+        font-weight: 700;
+    }
+    .introText{
+        font-size: 3rem;
+        font-weight: 300;
+    }
+    .introPara{
+        font-size: 1.3rem;
+        font-weight: 700;
+        font-style:italic;
+    }
+}
