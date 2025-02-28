@@ -1,42 +1,65 @@
-const project=require("../schema/projectsSchema")
-exports.getprojects=async(req,res,next)=>{
-    try{
-    const projects=await project.find()
-    console.log(projects)
-    res.status(200).send({
-        success: true,
-        data: projects
-    })
-    }
-    catch(e){
-        res.status(400).send({
-            success:false,
-            error:e.message
-        })
-    }
-    
-}
+const Project = require("../schema/projectSchema");
 
-exports.postprojects=async(req,res,next)=>{
-    try{console.log("i am being sent here")
-    const {projectName,description,githubLink}=req.body
-    const image=req.file.path
-    const myproject =await project.create({
-        projectName,image,description,githubLink
-    })
-    myproject.save()
-    res.status(200).send({
-        success: true,
-        message: "Completed",
-    })
-}
-    catch(e){
-        res.status(400).send({
+// Get all projects
+exports.getProjects = async (req, res) => {
+    try {
+        const projects = await Project.find();
+        res.status(200).json({
+            success: true,
+            data: projects
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error",
+            error: error.message
+        });
+    }
+};
+
+// Post a new project (with file upload)
+exports.postProject = async (req, res) => {
+    try {
+        console.log("POST request received");
+
+        const { projectName, description, githubLink } = req.body;
+
+        // Ensure an image file is uploaded
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: "Image file is required"
+            });
+        }
+
+        const image = req.file.path; // Get uploaded file path
+
+        // Validate required fields
+        if (!projectName || !description || !githubLink) {
+            return res.status(400).json({
+                success: false,
+                message: "All fields (projectName, description, githubLink) are required"
+            });
+        }
+
+        // Create and save project
+        const newProject = await Project.create({
+            projectName,
+            description,
+            githubLink,
+            image
+        });
+
+        res.status(201).json({
+            success: true,
+            message: "Project created successfully",
+            data: newProject
+        });
+    } catch (error) {
+        res.status(400).json({
             success: false,
             message: "Bad Request",
-            error: e.message
-        })
+            error: error.message
+        });
     }
-
-
-}
+};
