@@ -4,14 +4,10 @@ import emailjs from "@emailjs/browser";
 import "./contact.css";
 import { FaGithub } from "react-icons/fa";
 
-import edoko from "../../assets/E_DOKO logo (2).png";
-import krishivue from "../../assets/krishivue.png";
-import dirghayu from "../../assets/dirghayu.png";
-import baagchal from "../../assets/baagchal.png";
-
 const Contact = () => {
   const [fetchedProjects, setFetchedProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false); // Track whether to show all projects or not
 
   useEffect(() => {
     const getProjects = async () => {
@@ -59,6 +55,9 @@ const Contact = () => {
     return <h1>Loading...</h1>;
   }
 
+  // Show only 4 projects initially
+  const displayedProjects = showAll ? fetchedProjects : fetchedProjects.slice(0, 4);
+
   return (
     <section id="contactPage">
       <div className="clients">
@@ -73,7 +72,7 @@ const Contact = () => {
       <div className="clientsImgs">
         <div className="projects">
           {fetchedProjects &&
-            fetchedProjects.map((project, index) => (
+            displayedProjects.map((project, index) => (
               <div className="project" key={index}>
                 <h1>{project.projectName}</h1>
                 <img
@@ -96,6 +95,14 @@ const Contact = () => {
               </div>
             ))}
         </div>
+
+        {/* Show All Button */}
+        <button
+          className="showAllButton"
+          onClick={() => setShowAll(!showAll)} // Toggle showAll state
+        >
+          {showAll ? "Show Less" : "Show All"}
+        </button>
       </div>
 
       <div id="contact">

@@ -35,7 +35,6 @@ const Intro = () => {
 
         Additionally, I am passionate about contributing to projects that solve real-world problems, constantly seeking opportunities to collaborate and learn from others in the tech community. Whether it's building responsive web applications or designing complex neural network models, I am dedicated to pushing the boundaries of what technology can achieve.</p>
         <button className='btn' onClick={()=>gotoResume()}><h2>See Resume</h2></button>
-        <Link><button className='btn'><h2>Hire Me</h2></button></Link>
       </div>
       <img src={myImage} alt="myimage" className="bg" />
     </div>
