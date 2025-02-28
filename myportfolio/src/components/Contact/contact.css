@@ -33,9 +33,10 @@
   margin: 0 0.25rem;
 }
 .contactDesc {
-  padding: 1rem;
+  padding: 4rem;
   font-size: medium;
   font-weight: 600;
+  margin-top:20px;
 }
 .contactForm {
   margin: 1rem;
